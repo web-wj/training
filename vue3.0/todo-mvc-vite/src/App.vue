@@ -16,26 +16,10 @@
         <input id="toggle-all" class="toggle-all" type="checkbox" />
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-          <li class="todo">
+          <li class="todo" v-for="todoItem in todoRef">
             <div class="view">
               <input class="toggle" type="checkbox" />
-              <label>学习composition api</label>
-              <button class="destroy"></button>
-            </div>
-            <input class="edit" type="text" />
-          </li>
-          <li class="todo">
-            <div class="view">
-              <input class="toggle" type="checkbox" />
-              <label>投递50封简历</label>
-              <button class="destroy"></button>
-            </div>
-            <input class="edit" type="text" />
-          </li>
-          <li class="todo">
-            <div class="view">
-              <input class="toggle" type="checkbox" />
-              <label>上午10:30 参加面试</label>
+              <label>{{ todoItem.title }}</label>
               <button class="destroy"></button>
             </div>
             <input class="edit" type="text" />
@@ -48,7 +32,7 @@
           <span>items left</span>
         </span>
         <ul class="filters">
-          <li><a href="#/all" class="selected">All</a></li>
+          <li><a href="#/all" class="selected" @click="filterTodoList">All</a></li>
           <li><a href="#/active" class="">Active</a></li>
           <li><a href="#/completed" class="">Completed</a></li>
         </ul>
@@ -63,6 +47,7 @@
 <script>
 import useTodoList from "./composition/useTodoList";
 import useNewTodo from "./composition/useNewTodo";
+import useFilterTodo from "./composition/useFilterTodo";
 
 export default {
   setup() {
@@ -70,8 +55,8 @@ export default {
     return {
       todoRef,
       ...useNewTodo(todoRef),
+      ...useFilterTodo(todoRef)
     };
   },
 };
 </script>
-
