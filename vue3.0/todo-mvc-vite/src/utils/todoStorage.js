@@ -25,3 +25,20 @@ export function save(todos) {
 export function generateKey() {
   return Date.now() + Math.random().toString(16).substring(2, 4);
 }
+
+/**
+ * 通过状态过滤 todos
+ * @param {*} todos 所有的 todos 
+ * @param {*} status 当前的状态
+ * @returns 
+ */
+export function filter(todos, status) {
+  if (status === "all") {
+    return todos;
+  } else if (status === "active") {
+    return todos.filter((item) => !item.completed);
+  } else if (status === "completed") {
+    return todos.filter((item) => item.completed);
+  }
+  throw new Error("invalid status value!");
+}

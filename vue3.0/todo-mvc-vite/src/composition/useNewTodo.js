@@ -5,9 +5,12 @@ export default function useNewTodo (todoRef) {
   const newTodoRef = ref(''); // 新任务标题
 
   const addTodo = () => {
-    const title = newTodoRef.value;
+    const title = newTodoRef.value.trim();
+    if (!title) {
+      return;
+    }
     const todo = {
-      key: generateKey(),
+      id: generateKey(),
       title,
       completed: false,
     };

@@ -12,31 +12,63 @@
           @keyup.enter="addTodo"
         />
       </header>
-      <section class="main">
-        <input id="toggle-all" class="toggle-all" type="checkbox" />
+      <section class="main" v-show="filterTodoRef.length > 0">
+        <input 
+          id="toggle-all" 
+          class="toggle-all" 
+          type="checkbox"
+          v-model="allDone"
+        />
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-          <li class="todo" v-for="todoItem in todoRef">
+          <li 
+            class="todo" 
+            :class="{ 
+              'completed': todoItem.completed,
+              'editing' : currentEditItemRef === todoItem
+            }" 
+            v-for="todoItem in filterTodoRef" 
+            :key="todoItem.id"
+            @dblclick="editTodoItem(todoItem, $event)"
+          >
             <div class="view">
-              <input class="toggle" type="checkbox" />
+              <input class="toggle" type="checkbox" v-model="todoItem.completed"/>
               <label>{{ todoItem.title }}</label>
-              <button class="destroy"></button>
+              <button class="destroy" @click="removeItem(todoItem)"></button>
             </div>
-            <input class="edit" type="text" />
+            <input 
+              class="edit" 
+              type="text" 
+              v-model="todoItem.title" 
+              @blur="exitEdit(todoItem)" 
+              @keyup.enter="exitEdit(todoItem)"
+              @keyup.escape="cancelEdit(todoItem)"
+            />
           </li>
         </ul>
       </section>
-      <footer class="footer">
+      <footer class="footer" v-show="filterTodoRef.length > 0">
         <span class="todo-count">
-          <strong>3</strong>
-          <span>items left</span>
+          <strong>{{ remainRef }}</strong>
+          <span>item{{ remainRef > 1 ? 's' : '' }} left</span>
         </span>
         <ul class="filters">
-          <li><a href="#/all" class="selected" @click="filterTodoList">All</a></li>
-          <li><a href="#/active" class="">Active</a></li>
-          <li><a href="#/completed" class="">Completed</a></li>
+          <li>
+            <a href="#/all" :class="{ 'selected': currentStatusRef === 'all' }">All</a>
+          </li>
+          <li>
+            <a href="#/active" :class="{ 'selected': currentStatusRef === 'active' }">Active</a>
+          </li>
+          <li>
+            <a href="#/completed" :class="{ 'selected': currentStatusRef === 'completed' }">Completed</a>
+          </li>
         </ul>
-        <button class="clear-completed" style="display: none">
+        <button 
+          class="clear-completed" 
+          style="display: none" 
+          v-show="completedRef > 0"
+          @click="removeAllCompleted"
+        >
           Clear completed
         </button>
       </footer>
@@ -48,6 +80,8 @@
 import useTodoList from "./composition/useTodoList";
 import useNewTodo from "./composition/useNewTodo";
 import useFilterTodo from "./composition/useFilterTodo";
+import useEditTodo from "./composition/useEditTodo";
+import useRemoveTodo from "./composition/useRemoveTodo";
 
 export default {
   setup() {
@@ -55,7 +89,9 @@ export default {
     return {
       todoRef,
       ...useNewTodo(todoRef),
-      ...useFilterTodo(todoRef)
+      ...useFilterTodo(todoRef),
+      ...useEditTodo(todoRef),
+      ...useRemoveTodo(todoRef),
     };
   },
 };
