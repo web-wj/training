@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="select-wrapper">
-      <span>选择：</span>
+      <span>{{ select }}</span>
       <div v-for="(phone, index) in phoneList" :key="index + phone">
         <input type="checkbox" v-model="phone.checked"/>
         <input type="text" class="phone" v-model="phone.value"/>
       </div>
     </div>
     <div class="show-wrapper">
-      <span>展示：</span>
+      <span>{{ show }}</span>
       <div class="show-content">
         <div class="select-phone">
           <span v-for="(phone, index) in selectedPhoneList" :key="index + phone">{{ phone }}</span>
@@ -22,6 +22,8 @@
 export default {
   data () {
     return {
+      select: '选择：',
+      show: '展示：',
       phoneList: [{
         value: 'iphone12',
         checked: true
