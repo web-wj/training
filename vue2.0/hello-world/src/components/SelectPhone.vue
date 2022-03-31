@@ -15,11 +15,15 @@
         </div>
       </div>
     </div>
+    <div>{{ msg }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    msg: String
+  },
   data () {
     return {
       select: '选择：',
@@ -44,6 +48,8 @@ export default {
     }
   },
   created () {
+    this.msg = '修改传递的参数'
+    alert(this.msg)
     console.log(this.selectedPhoneList)
   }
 }

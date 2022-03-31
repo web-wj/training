@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <SelectPhone />
+    <SelectPhone msg="传递参数"/>
   </div>
 </template>
 
