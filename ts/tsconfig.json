@@ -1,9 +1,0 @@
-{
-  "include": [
-    "base/*.ts"
-  ],
-  "compilerOptions": {
-    "target": "ES3",
-    "outDir": "dist1"
-  }
-}
