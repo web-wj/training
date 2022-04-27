@@ -1,104 +1,111 @@
 {
-	"name": "vscode-test",
-	"displayName": "vscode-test",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.59.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:vscode-test.helloWorld",
-		"onCommand:vscode-test.nav",
-		"onCommand:vscode-test.progress",
-		"onLanguage:typescript"
-	],
-	"main": "./src/index.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "vscode-test.helloWorld",
-				"title": "vs-msg"
-			},
-			{
-				"command": "vscode-test.nav",
-				"title": "vs-nav"
-			},
-			{
-				"command": "vscode-test.progress",
-				"title": "vs-progress"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "vscode-test.helloWorld",
-				"key": "ctrl+f10",
-				"mac": "cmd+f10",
-				"when": "editorFocus && resourceLangId == javascript"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"when": "editorFocus",
-					"command": "vscode-test.nav",
-					"group": "navigation"
-				}
-			],
-			"editor/title": [
-				{
-					"when": "editorFocus",
-					"command": "vscode-test.progress",
-					"group": "navigation"
-				}
-			]
-		},
-		"viewsContainers": {
-			"activitybar": [
-				{
-					"id": "testicon",
-					"title": "标题,并且hover显示",
-					"icon": "./images/星球.png"
-				}
-			]
-		},
-		"views": {
-			"testicon": [
-				{
-					"id": "c1",
-					"name": "未完成"
-				},
-				{
-					"id": "c2",
-					"name": "已完成"
-				},
-				{
-					"id": "c3",
-					"name": "记录"
-				},
-				{
-					"id": "c4",
-					"name": "拓展"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.59.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.0",
-		"@types/node": "14.x",
-		"eslint": "^8.11.0",
-		"glob": "^7.2.0",
-		"mocha": "^9.2.2",
-		"typescript": "^4.5.5",
-		"@vscode/test-electron": "^2.1.3"
-	}
+  "name": "vscode-test",
+  "displayName": "vscode-test",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.59.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:vscode-test.helloWorld",
+    "onCommand:vscode-test.nav",
+    "onCommand:vscode-test.progress",
+    "onLanguage:typescript",
+    "onView:c1"
+  ],
+  "main": "./src/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-test.helloWorld",
+        "title": "vs-msg"
+      },
+      {
+        "command": "vscode-test.nav",
+        "title": "vs-nav"
+      },
+      {
+        "command": "vscode-test.progress",
+        "title": "vs-progress"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-test.helloWorld",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorFocus && resourceLangId == javascript"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "vscode-test.nav",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorFocus",
+          "command": "vscode-test.progress",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "icon",
+          "title": "标题,并且hover显示",
+          "icon": "./images/星球.png"
+        }
+      ]
+    },
+    "views": {
+      "icon": [
+        {
+          "id": "c1",
+          "name": "未完成"
+        },
+        {
+          "id": "c2",
+          "name": "已完成"
+        },
+        {
+          "id": "c3",
+          "name": "记录"
+        },
+        {
+          "id": "c4",
+          "name": "拓展"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/cc.json"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.59.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "14.x",
+    "eslint": "^8.11.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.2.2",
+    "typescript": "^4.5.5",
+    "@vscode/test-electron": "^2.1.3"
+  }
 }

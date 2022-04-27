@@ -1,0 +1,11 @@
+{
+  "名字写在这里真奇怪, 使公司模板统一": {
+      "prefix": "cc prefix match string",
+      "body": [
+        "for (xxxxxxxxxxxxxxxxx ${2:item} of ${1:array}) {",
+        "\t$0",
+        "}"
+      ],
+      "description": "我自己定义的cc哦, 厉害吧"
+  }
+}
