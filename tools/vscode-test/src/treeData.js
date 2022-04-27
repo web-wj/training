@@ -1,4 +1,4 @@
-const c1Tree = {
+const todoTree = {
   '1': {
     '作者': "lulu",
       '宠物': {
@@ -19,5 +19,5 @@ const c1Tree = {
 }
 
 module.exports = {
-  c1Tree,
+  todoTree,
 }

@@ -14,7 +14,7 @@
     "onCommand:vscode-test.nav",
     "onCommand:vscode-test.progress",
     "onLanguage:typescript",
-    "onView:c1"
+    "onView:todo-list"
   ],
   "main": "./src/index.js",
   "contributes": {
@@ -30,6 +30,30 @@
       {
         "command": "vscode-test.progress",
         "title": "vs-progress"
+      },
+      {
+        "command": "todo-list.refresh",
+        "title": "Refresh",
+        "icon": {
+          "light": "./images/light_refresh.png",
+          "dark": "./images/dark_refresh.png"
+        }
+      },
+      {
+        "command": "todo-list.edit",
+        "title": "Edit",
+        "icon": {
+          "light": "./images/light_refresh.png",
+          "dark": "./images/dark_refresh.png"
+        }
+      },
+      {
+        "command": "todo-list.delete",
+        "title": "Delete",
+        "icon": {
+          "light": "./images/light_refresh.png",
+          "dark": "./images/dark_refresh.png"
+        }
       }
     ],
     "keybindings": [
@@ -54,6 +78,24 @@
           "command": "vscode-test.progress",
           "group": "navigation"
         }
+      ],
+      "view/title": [
+        {
+          "command": "todo-list.refresh",
+          "when": "view == todo-list",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "todo-list.edit",
+          "when": "view == todo-list",
+          "group": "inline"
+        },
+        {
+          "command": "todo-list.delete",
+          "when": "view == todo-list"
+        }
       ]
     },
     "viewsContainers": {
@@ -68,7 +110,7 @@
     "views": {
       "icon": [
         {
-          "id": "c1",
+          "id": "todo-list",
           "name": "未完成"
         },
         {
