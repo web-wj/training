@@ -1,0 +1,21 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "./bin/portal",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "alex": "echo \"TEST: Alex\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "clear": "^0.1.0",
+    "commander": "^9.2.0",
+    "download-git-repo": "^3.0.2",
+    "figlet": "^1.5.2"
+  }
+}
