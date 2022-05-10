@@ -3,8 +3,8 @@ const program =  require('commander');
 program.version(require('../package.json').version);
 
 program
-    .command('install <name>')
+    .command('init <name>')
     .description('install project ')
-    .action(require('../lib/install'))
+    .action(require('../lib/init'))
 
 program.parse(process.argv);
