@@ -26,7 +26,7 @@ module.exports = async (name) => {
 
   // 下载模板项目
   log(`🚀 创建项目： ${name}\n`);
-  await create('github:web-wj/portal-template', name);
+  await clone('github:web-wj/portal-template', name);
 
   // 自动安装依赖
   log('✈ 安装依赖......\n');
