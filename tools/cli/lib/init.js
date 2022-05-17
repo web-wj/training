@@ -29,18 +29,18 @@ module.exports = async (name) => {
   await clone('github:web-wj/cli-template', name);
 
   // 自动安装依赖
-//   log('✈ 安装依赖......\n');
-//   await spawn('npm', ['install'], {cwd: `./${name}`});
-//   log(`
-// 🔨 安装完成
-// To get Start:
-// ===========================
-//      cd ${name}
-//      npm run serve
-// ===========================
-//   `);
+  log('✈ 安装依赖......\n');
+  await spawn('npm', ['install'], {cwd: `./${name}`});
+  log(`
+🔨 安装完成
+To get Start:
+=====================================================
+                  cd ${name}
+                  npm run serve
+=====================================================
+  `);
 
   // 启动
-  // open(`http:localhost:8080`);
-  // await spawn('npm ', ['run', 'serve'], {cwd: `./${name}`});
+  open(`http://localhost:8080/`);
+  await spawn('npm', ['run', 'serve'], {cwd: `./${name}`});
 }
