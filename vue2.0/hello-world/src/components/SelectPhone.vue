@@ -49,7 +49,7 @@ export default {
   },
   created () {
     this.msg = '修改传递的参数'
-    alert(this.msg)
+    // alert(this.msg)
     console.log(this.selectedPhoneList)
   }
 }

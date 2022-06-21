@@ -23,13 +23,9 @@
     </div>
   </main>
 </template>
-<script>
-import draggable from 'vuedraggable'
 
+<script>
 export default {
-  components: {
-    draggable
-  },
   data () {
     return {
       list1: [{ name: '方块A：拖动我试试' }],
@@ -43,7 +39,7 @@ export default {
   background: #3f51b5;
   color: #fff;
   border: 1px solid;
-  height: 500px;
+  height: 50vh;
 }
 .list-item {
   margin: 10px;
