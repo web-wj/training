@@ -1,7 +1,7 @@
 module.exports = {
-  mode: "production",
-  entry: './src/main.js',
-  output: {
-    filename: "bundle.js"
-  }
+  // entry: './src/main.js',
+  // output: {
+  //   filename: "bundle.js"
+  // }
+  // devtool: "hidden-source-map" 
 }
