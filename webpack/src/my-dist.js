@@ -1,4 +1,4 @@
-var bbb = 'bbb';
+// var bbb = 'bbb';
 
 (function(modules) {
   // 用于缓存模块的导出结果
@@ -7,7 +7,7 @@ var bbb = 'bbb';
   // 防止与 node 环境下的 webpack 同名
   function __webpack_require__(moduleId) {
     if (moduleExports[moduleId]) {
-      return moduleExports[moduleId]; 
+      return moduleExports[moduleId];
     }
     const fnc = modules[moduleId];
     let module = {
@@ -33,4 +33,4 @@ var bbb = 'bbb';
   }
 })
 
-console.log(bbb);
+// console.log(bbb);
