@@ -1,4 +1,4 @@
-console.log('module a!!!');
+console.log('module a');
 // const $ = require('jquery');
 
 module.exports = 'a';
