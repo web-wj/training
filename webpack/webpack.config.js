@@ -1,3 +1,5 @@
+const fileInfo = require('./plugins/fileInfo');
+
 // module.exports = {
 //   mode: "development",
 //   entry: "./src/test-loader.js",
@@ -31,21 +33,38 @@
 // }
 
 // 处理图片
+// module.exports = {
+//     mode: "development",
+//     devtool: "source-map",
+//     module: {
+//         rules: [
+//             {
+//                 test: /\.(png)|(jpg)|(gif)$/, 
+//                 use: [{
+//                     loader: "./loaders/img-loader.js",
+//                     options: {
+//                         limit: 3000, //3000字节以上使用图片，3000字节以内使用base64
+//                         filename: "img-[contenthash:5].[ext]"
+//                     }
+//                 }]
+//             }
+//         ]
+//     }
+// }
+
+// plugin 练习
 module.exports = {
     mode: "development",
     devtool: "source-map",
-    module: {
-        rules: [
-            {
-                test: /\.(png)|(jpg)|(gif)$/, 
-                use: [{
-                    loader: "./loaders/img-loader.js",
-                    options: {
-                        limit: 3000, //3000字节以上使用图片，3000字节以内使用base64
-                        filename: "img-[contenthash:5].[ext]"
-                    }
-                }]
-            }
-        ]
+    // watch: true,
+    output: {
+        library: 'abc',
+    },
+    plugins: [
+        new fileInfo(),
+    ],
+    stats: {
+        colors: true,
+        modules: false,
     }
 }
