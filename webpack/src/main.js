@@ -1,1 +1,1 @@
-console.log('mainjs');
+console.log('mainjs', __dirname);
