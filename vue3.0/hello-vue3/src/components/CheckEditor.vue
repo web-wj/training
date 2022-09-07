@@ -42,6 +42,9 @@ export default {
       handleChecked,
       handleTextChange
     }
+  },
+  created () {
+    console.log('this', this)
   }
 }
 </script>

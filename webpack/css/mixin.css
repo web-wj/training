@@ -1,0 +1,8 @@
+@import url(./blue.css);
+@import url(./red.css);
+
+.item {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+}
