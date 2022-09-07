@@ -52,6 +52,9 @@ export default {
       increase,
       doubleNum: doubleNumRef
     }
+  },
+  created () {
+    console.log('this', this)
   }
 }
 </script>
