@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main>
+    <!-- <main>
       <div class="mt-5 container">
         <div class="row justify-content-center border py-5">
           <div class="col-5">
@@ -28,20 +28,21 @@
     <div v-for="(item,index) in items" :key="item.a + index">
       <item :item="item" />
     </div>
-    <button @click="clickPush">点击我</button>
-
+    <button @click="clickPush">点击我</button> -->
+    {{ num }}
+    <button @click="clickPlus">+1</button>
   </div>
 </template>
 <script>
-import draggable from 'vuedraggable'
-import myinput from './components/MyInput.vue'
-import item from './components/Item.vue'
+// import draggable from 'vuedraggable'
+// import myinput from './components/MyInput.vue'
+// import item from './components/Item.vue'
 
 export default {
   components: {
-    draggable,
-    myinput,
-    item
+    // draggable,
+    // myinput,
+    // item
   },
   data () {
     return {
@@ -54,7 +55,8 @@ export default {
         a: 2
       }, {
         a: 3
-      }]
+      }],
+      num: 1
     }
   },
   methods: {
@@ -62,7 +64,13 @@ export default {
       this.items.push({
         a: 4
       })
+    },
+    clickPlus () {
+      this.num++
     }
+  },
+  created () {
+    console.log(this)
   },
   watch: {
     items (newVal, oldVal) {

@@ -18,6 +18,9 @@ export default {
       copyItem: this.item
     }
   },
+  created () {
+    console.log(123)
+  },
   methods: {
     clickChange () {
       // this.copyItem.a = 12
